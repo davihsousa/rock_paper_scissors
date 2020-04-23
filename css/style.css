@@ -1,0 +1,22 @@
+/* Body Styles */
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #f3f0f1;
+  font-family: Lobster;
+  font-size: 36pt;
+  display: grid;
+  justify-items: center;
+}
+
+/* Image Styles */
+
+/* div {
+  text-align: center;
+} */
+
+div {
+  /* width: 80%; */
+  border: 1px solid blue;
+}

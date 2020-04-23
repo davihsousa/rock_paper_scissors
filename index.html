@@ -3,10 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lobster|Montserrat|Open+Sans"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="css/reset.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <title>Rock, Paper and Scissors</title>
   </head>
-
   <body>
+    <div class="gameBoard">
+      <div class="topBar">Rock, Paper and Scissors</div>
+      <div class="playerBoard">
+        <div class="playerProfile">
+          <img id="computerIcon" src="assets/person-black-48dp.svg" />
+        </div>
+      </div>
+      <div class="resultsBoard"></div>
+      <div class="computerBoard">
+        <div class="computerProfile">
+          <img id="computerIcon" src="assets/computer-black-48dp.svg" />
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
