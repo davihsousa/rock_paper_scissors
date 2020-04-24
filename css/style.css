@@ -1,22 +1,79 @@
 /* Body Styles */
 
 body {
-  width: 100vw;
-  height: 100vh;
+  /* min-width: 100vw;
+  height: 100vh; */
   background: #f3f0f1;
-  font-family: Lobster;
-  font-size: 36pt;
-  display: grid;
-  justify-items: center;
+  font-family: Montserrat;
+  color: #160c28;
+  /* font-size: 36pt; */
+  text-align: center;
 }
 
-/* Image Styles */
-
-/* div {
-  text-align: center;
-} */
+.topBar {
+  font-family: Lobster;
+  font-size: 36pt;
+  min-width: 100px;
+}
 
 div {
   /* width: 80%; */
   border: 1px solid blue;
+}
+
+.gameBoard {
+  display: grid;
+  width: 85%;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.resultsBoard {
+  border: none;
+  width: 400px;
+  height: 100px;
+  background: #f3f0f1;
+  position: relative;
+  margin-bottom: 25px;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  /* transition: all 0.1s ease-in-out; */
+  line-height: 100px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  font-weight: semibold;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+    6px 6px 10px rgba(0, 0, 0, 0.2);
+  color: #6f6cde;
+}
+/* Buttons */
+.button {
+  border: none;
+  width: 400px;
+  height: 100px;
+  background: #f3f0f1;
+  position: relative;
+  margin-bottom: 25px;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  /* transition: all 0.1s ease-in-out; */
+  line-height: 100px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  font-weight: semibold;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+    6px 6px 10px rgba(0, 0, 0, 0.2);
+  color: #6f6cde;
+}
+
+.button:hover {
+  opacity: 0.3;
+}
+
+.button:active {
+  opacity: 1;
+  box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+    inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+  color: #79e3b6;
 }
