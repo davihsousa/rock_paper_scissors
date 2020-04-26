@@ -1,3 +1,18 @@
+// Event Listeners
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorsButton = document.querySelector('#scissors');
+const resetGame = document.querySelector('.resetButton');
+const placard = document.querySelector('.resultsPlacard');
+const results = document.querySelector('.resultsDisplay');
+const computer = document.querySelector('.computerDisplay');
+
+const playerButtons = Array.from(document.querySelectorAll('.button'));
+playerButtons.forEach((button) =>
+  button.addEventListener('click', () => alert(button.id))
+);
+
+// Functions
 function computerPlay() {
   const random = Math.floor(Math.random() * 3) + 1;
   switch (random) {
@@ -10,39 +25,7 @@ function computerPlay() {
   }
 }
 
-function playRound(playerSelection, computerSelection) {
-  const playerSelectionLower = playerSelection.toLowerCase();
-  const computerSelectionLower = computerSelection.toLowerCase();
-
-  if (playerSelection === computerSelectionLower) {
-    return 'A draw!';
-  }
-  if (playerSelectionLower === 'rock' && computerSelectionLower === 'paper') {
-    return 'You Lose! Paper beats rock';
-  }
-  if (
-    playerSelectionLower === 'rock' &&
-    computerSelectionLower === 'scissors'
-  ) {
-    return 'You Win! Rock beats scissors';
-  }
-  if (playerSelectionLower === 'paper' && computerSelectionLower === 'rock') {
-    return 'You Win! Paper beats rock';
-  }
-  if (
-    playerSelectionLower === 'paper' &&
-    computerSelectionLower === 'scissors'
-  ) {
-    return 'You Lose! Scissors beat rock';
-  }
-  if (
-    playerSelectionLower === 'scissors' &&
-    computerSelectionLower === 'rock'
-  ) {
-    return 'You Lose! Rock beats scissors';
-  }
-  return 'You Win! Scissors beat paper';
-}
+function reset() {}
 
 function game() {
   console.log('Game starting... Round 1');
@@ -80,4 +63,26 @@ function game() {
   wins > 3
     ? console.log(`You won with ${wins} wins`)
     : console.log(`You lost with ${wins} wins`);
+}
+
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === computerSelection) {
+    return 'A draw!';
+  }
+  if (playerSelection === 'rock' && computerSelection === 'paper') {
+    return 'You Lose! Paper beats rock';
+  }
+  if (playerSelection === 'rock' && computerSelection === 'scissors') {
+    return 'You Win! Rock beats scissors';
+  }
+  if (playerSelection === 'paper' && computerSelection === 'rock') {
+    return 'You Win! Paper beats rock';
+  }
+  if (playerSelection === 'paper' && computerSelection === 'scissors') {
+    return 'You Lose! Scissors beat rock';
+  }
+  if (playerSelection === 'scissors' && computerSelection === 'rock') {
+    return 'You Lose! Rock beats scissors';
+  }
+  return 'You Win! Scissors beat paper';
 }

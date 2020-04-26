@@ -43,7 +43,8 @@ body {
 .resultsPlacard,
 .button,
 .resetButton,
-.resultsDisplay {
+.resultsDisplay,
+.computerDisplay {
   border: none;
   background: #f3f0f1;
   /* position: relative; */
@@ -68,7 +69,8 @@ body {
   justify-content: center;
 }
 
-.button {
+.button,
+.computerDisplay {
   width: 90%;
   height: 100px;
   transition: all 0.1s ease-in-out;
