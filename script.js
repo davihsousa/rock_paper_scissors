@@ -3,35 +3,42 @@ function computerPlay() {
   switch (random) {
     case 1:
       return 'rock';
-      break;
     case 2:
       return 'paper';
-      break;
     default:
       return 'scissors';
   }
 }
 
 function playRound(playerSelection, computerSelection) {
-  playerSelection = playerSelection.toLowerCase();
-  computerSelection = computerSelection.toLowerCase();
+  const playerSelectionLower = playerSelection.toLowerCase();
+  const computerSelectionLower = computerSelection.toLowerCase();
 
-  if (playerSelection === computerSelection) {
+  if (playerSelection === computerSelectionLower) {
     return 'A draw!';
   }
-  if (playerSelection === 'rock' && computerSelection === 'paper') {
+  if (playerSelectionLower === 'rock' && computerSelectionLower === 'paper') {
     return 'You Lose! Paper beats rock';
   }
-  if (playerSelection === 'rock' && computerSelection === 'scissors') {
+  if (
+    playerSelectionLower === 'rock' &&
+    computerSelectionLower === 'scissors'
+  ) {
     return 'You Win! Rock beats scissors';
   }
-  if (playerSelection === 'paper' && computerSelection === 'rock') {
+  if (playerSelectionLower === 'paper' && computerSelectionLower === 'rock') {
     return 'You Win! Paper beats rock';
   }
-  if (playerSelection === 'paper' && computerSelection === 'scissors') {
+  if (
+    playerSelectionLower === 'paper' &&
+    computerSelectionLower === 'scissors'
+  ) {
     return 'You Lose! Scissors beat rock';
   }
-  if (playerSelection === 'scissors' && computerSelection === 'rock') {
+  if (
+    playerSelectionLower === 'scissors' &&
+    computerSelectionLower === 'rock'
+  ) {
     return 'You Lose! Rock beats scissors';
   }
   return 'You Win! Scissors beat paper';
@@ -70,5 +77,7 @@ function game() {
     ++wins;
   }
   console.log(`Round 1: ${result}. ${wins} wins`);
-  wins > 3 ? console.log(`You won with ${wins} wins`) : console.log(`You lost with ${wins} wins`);
+  wins > 3
+    ? console.log(`You won with ${wins} wins`)
+    : console.log(`You lost with ${wins} wins`);
 }
