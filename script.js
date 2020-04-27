@@ -51,11 +51,13 @@ function game() {
     }
   });
 
+  console.log(losses);
+
   if (wins === 5) {
     display(results, 'WINNER!');
     newGame();
   } else if (losses === 5) {
-    display(result, 'You Lost!');
+    display(results, 'You Lost!');
     newGame();
   } else {
     display(results, `${wins}:${losses}`);

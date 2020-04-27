@@ -13,10 +13,6 @@ body {
   margin: 40px auto;
 }
 
-/* div {
-  border: 1px solid blue;
-} */
-
 .playerButtons,
 .computerChoice,
 .resultsBoard {
@@ -45,7 +41,6 @@ body {
 .resetButton,
 .resultsDisplay,
 .computerDisplay {
-  border: none;
   background: #f3f0f1;
   /* position: relative; */
   margin: 12px;
