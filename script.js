@@ -11,9 +11,14 @@ const playerButtons = Array.from(document.querySelectorAll('.button'));
 playerButtons.forEach((button) =>
   button.addEventListener('click', function () {
     const roundResult = playRound(button.id);
-    alert(roundResult);
+    const resultElement = document.createElement('p');
+    resultElement.textContent = roundResult;
+    placard.appendChild(resultElement);
+    game();
   })
 );
+
+resetGame.addEventListener('click', newGame);
 
 // Functions
 function resetPlacard() {
@@ -26,43 +31,33 @@ function display(display, content) {
   display.textContent = content;
 }
 
-function game(rounds) {
+function newGame() {
+  resetPlacard();
+  display(results, '--');
+  display(computer, '--');
+}
+
+function game() {
   let wins = 0;
   let losses = 0;
-  let result;
+  const actualResults = Array.from(placard.querySelectorAll('p'));
+  actualResults.forEach((result) => {
+    if (result.textContent === 'Won') {
+      ++wins;
+    } else if (result.textContent === 'Lost') {
+      ++losses;
+    }
+  });
 
-  result = playRound(prompt('rock, paper or scissors?'), computerPlay());
-  if (result.search('Win') > 1) {
-    ++wins;
+  if (wins === 5) {
+    display(results, 'WINNER!');
+    newGame();
+  } else if (losses === 5) {
+    display(result, 'You Lost!');
+    newGame();
+  } else {
+    display(results, `${wins}:${losses}`);
   }
-  console.log(`Round 1: ${result}. ${wins} wins`);
-
-  result = playRound(prompt('rock, paper or scissors?'), computerPlay());
-  if (result.search('Win') > 1) {
-    ++wins;
-  }
-  console.log(`Round 1: ${result}. ${wins} wins`);
-
-  result = playRound(prompt('rock, paper or scissors?'), computerPlay());
-  if (result.search('Win') > 1) {
-    ++wins;
-  }
-  console.log(`Round 1: ${result}. ${wins} wins`);
-
-  result = playRound(prompt('rock, paper or scissors?'), computerPlay());
-  if (result.search('Win') > 1) {
-    ++wins;
-  }
-  console.log(`Round 1: ${result}. ${wins} wins`);
-
-  result = playRound(prompt('rock, paper or scissors?'), computerPlay());
-  if (result.search('Win') > 1) {
-    ++wins;
-  }
-  console.log(`Round 1: ${result}. ${wins} wins`);
-  wins > 3
-    ? console.log(`You won with ${wins} wins`)
-    : console.log(`You lost with ${wins} wins`);
 }
 
 function computerPlay() {
@@ -92,10 +87,10 @@ function playRound(playerSelection) {
     return 'Lost';
   }
   if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    return 'Win';
+    return 'Won';
   }
   if (playerSelection === 'paper' && computerSelection === 'rock') {
-    return 'Win';
+    return 'Won';
   }
   if (playerSelection === 'paper' && computerSelection === 'scissors') {
     return 'Lost';
@@ -103,5 +98,5 @@ function playRound(playerSelection) {
   if (playerSelection === 'scissors' && computerSelection === 'rock') {
     return 'Lost';
   }
-  return 'Win';
+  return 'Won';
 }
