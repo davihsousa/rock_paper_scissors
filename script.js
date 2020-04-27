@@ -33,8 +33,8 @@ function display(display, content) {
 
 function newGame() {
   resetPlacard();
-  display(results, '--');
-  display(computer, '--');
+  // display(results, '--');
+  // display(computer, '--');
 }
 
 function game() {
@@ -46,6 +46,8 @@ function game() {
       ++wins;
     } else if (result.textContent === 'Lost') {
       ++losses;
+    } else {
+      placard.removeChild(placard.lastChild);
     }
   });
 
