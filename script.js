@@ -9,28 +9,28 @@ const computer = document.querySelector('.computerDisplay');
 
 const playerButtons = Array.from(document.querySelectorAll('.button'));
 playerButtons.forEach((button) =>
-  button.addEventListener('click', () => alert(button.id))
+  button.addEventListener('click', function () {
+    const roundResult = playRound(button.id);
+    alert(roundResult);
+  })
 );
 
 // Functions
-function computerPlay() {
-  const random = Math.floor(Math.random() * 3) + 1;
-  switch (random) {
-    case 1:
-      return 'rock';
-    case 2:
-      return 'paper';
-    default:
-      return 'scissors';
+function resetPlacard() {
+  while (placard.firstElementChild) {
+    placard.removeChild(placard.lastChild);
   }
 }
 
-function reset() {}
+function display(display, content) {
+  display.textContent = content;
+}
 
-function game() {
-  console.log('Game starting... Round 1');
+function game(rounds) {
   let wins = 0;
+  let losses = 0;
   let result;
+
   result = playRound(prompt('rock, paper or scissors?'), computerPlay());
   if (result.search('Win') > 1) {
     ++wins;
@@ -65,24 +65,43 @@ function game() {
     : console.log(`You lost with ${wins} wins`);
 }
 
-function playRound(playerSelection, computerSelection) {
+function computerPlay() {
+  const random = Math.floor(Math.random() * 3) + 1;
+  switch (random) {
+    case 1:
+      return 'rock';
+    case 2:
+      return 'paper';
+    default:
+      return 'scissors';
+  }
+}
+
+function playRound(playerSelection) {
+  const computerSelection = computerPlay();
+
+  display(
+    computer,
+    computerSelection.replace(/^\w/, (first) => first.toUpperCase())
+  );
+
   if (playerSelection === computerSelection) {
-    return 'A draw!';
+    return 'Draw';
   }
   if (playerSelection === 'rock' && computerSelection === 'paper') {
-    return 'You Lose! Paper beats rock';
+    return 'Lost';
   }
   if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    return 'You Win! Rock beats scissors';
+    return 'Win';
   }
   if (playerSelection === 'paper' && computerSelection === 'rock') {
-    return 'You Win! Paper beats rock';
+    return 'Win';
   }
   if (playerSelection === 'paper' && computerSelection === 'scissors') {
-    return 'You Lose! Scissors beat rock';
+    return 'Lost';
   }
   if (playerSelection === 'scissors' && computerSelection === 'rock') {
-    return 'You Lose! Rock beats scissors';
+    return 'Lost';
   }
-  return 'You Win! Scissors beat paper';
+  return 'Win';
 }
